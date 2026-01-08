@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>c3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "SimHei", "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 51, 102, 0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #003366 0%, #004c99 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle,
+                    rgba(255, 255, 255, 0.1) 1px,
+                    transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.1;
+        }
+
+        .school-name {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .nine-grid-container {
+            padding: 60px 40px;
+            background: #f8f9fa;
+        }
+
+        .nine-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .grid-cell {
+            background: white;
+            border-radius: 15px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .grid-cell:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 51, 102, 0.15);
+            border-color: #003366;
+        }
+
+        .cell-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff9900 0%, #ffcc00 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.3);
+        }
+
+        .cell-title {
+            font-size: 22px;
+            color: #003366;
+            margin-bottom: 15px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .grid-cell::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #003366, #ff9900);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .grid-cell:hover::before {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="school-name">西安外事学院</h1>
+        </div>
+
+        <div class="nine-grid-container">
+            <div class="nine-grid">
+                <div class="grid-cell cell-1">
+                    <div class="cell-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="cell-title">教师招聘</h3>
+                    <p class="cell-content">
+                        立德树人，教书育人<br />培养担当民族复兴大任的时代新人
+                    </p>
+                </div>
+
+                <div class="grid-cell cell-1">
+                    <div class="cell-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="cell-title">全面人格养成</h3>
+                    <p class="cell-content">
+                        注重学生德智体美劳全面发展，培养健全人格和高尚品德
+                    </p>
+                </div>
+
+                <div class="grid-cell cell-2">
+                    <div class="cell-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="cell-title">注重个性发展</h3>
+                    <p class="cell-content">
+                        尊重学生个性差异，因材施教，激发学生潜能和创造力
+                    </p>
+                </div>
+
+                <div class="grid-cell cell-3">
+                    <div class="cell-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3 class="cell-title">锻炼强健体魄</h3>
+                    <p class="cell-content">
+                        重视体育教育，培养学生健康的生活方式和坚强的意志品质
+                    </p>
+                </div>
+
+                <div class="grid-cell cell-4">
+                    <div class="cell-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="cell-title">终身学习能力</h3>
+                    <p class="cell-content">
+                        培养学生自主学习能力，适应快速变化的社会发展需求
+                    </p>
+                </div>
+
+                <div class="grid-cell cell-5">
+                    <div class="cell-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="cell-title">开拓国际视野</h3>
+                    <p class="cell-content">
+                        培养具有国际竞争力的优秀人才，拓展全球化发展平台
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        s
+    </div>
+</body>
+
+</html>

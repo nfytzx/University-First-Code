@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 500px;
+            height: 5000px;
+            background: lightgray;
+            position: relative;
+        }
+        #son1{
+            width: 200px;
+            height: 200px;
+            background: lightcoral;
+            /* position: relative;
+            left: 200px;
+            top:0x; */
+            position: absolute;
+            left: 0px;
+            top:0px;
+        }
+        #son2{
+            width: 200px;
+            height: 200px;
+            background: rgb(106, 3, 223);
+            /* position: relative;
+            left: 200px;
+            top:-200px; */
+            /* position: absolute;
+            top: 200px;
+            left: 200px; */
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    定位：position
+       static:默认
+       relative:相对
+       absolute：绝对
+       fixed：固定
+       top left bottom right
+    -->
+    <div id="container">
+        <div id="son1"></div>
+        <div id="son2"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 900px;
+            height: 400px;
+            background: blue;
+            /* overflow: hidden; */
+        }
+        .son{
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+        }
+        #son1{
+            background: red;
+            float: right;
+        }
+        #son2{
+            background: rgb(136, 255, 0);
+            float: left;
+        }
+        #son3{
+            background: rgb(0, 153, 255);
+            float: left;
+        }
+        #clearfloat{
+            clear: both;
+        }
+        #son4{
+            background: rgb(255, 0, 170);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="son" id="son1">son1</div>
+        <div class="son" id="son2">son2</div>
+        <div class="son" id="son3">son3</div>
+        <div id="clearfloat"></div>
+        <div class="son" id="son4">son4</div>
+    </div>
+</body>
+</html>

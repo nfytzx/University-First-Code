@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+      <style>
+        /* 基础样式（移动优先：默认小屏样式） */
+           body{
+            padding: 50px;
+            margin: 50px;
+            background: lightblue;
+            transform: all linear 1s;
+           } 
+        /* 平板（≥768px） */
+           @media (min-width:768px) {
+              body{
+                background: lightcoral;
+              }
+              .content{
+                font-family: '微软雅黑';
+                font-size:4em;
+              }
+           }
+        /* 桌面（≥1024px） */
+           @media screen and (min-width:1024px) {
+             body{
+                background: lightseagreen;
+             }
+             .content{
+                width: 80%;
+                height: 40%;
+                background-color: blue;
+                font-family: '华文仿宋';
+                font-size: 6em;
+                color: white;
+             }
+           }
+      </style>
+    </head>
+    <body>
+        <!-- 
+        @media(屏幕的区域){
+           css样式
+           px：
+           百分比：%
+           rem：相对于HTML
+           em ：相对于父元素：
+           vw：
+           vh：
+        }
+        @nedia screen and (屏幕的区域){
+            css样式        
+        }
+        -->
+      <div class="content">
+        <h1>响应式布局示例</h1>
+        <p>当前屏幕宽度：<span id="screenWidth"></span>px</p>
+      </div>
+    </body>
+    </html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByTrend 注册页面</title>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* 容器样式 */
+        .container {
+            width: 800px;
+            margin: 40px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        /* 页眉样式 */
+        .header {
+            text-align: center;
+            padding: 30px 0 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .logo span:first-child {
+            color: #00bfa5;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .login-prompt {
+            color: #666;
+        }
+        
+        .login-prompt a {
+            color: #00bfa5;
+            text-decoration: none;
+        }
+        
+        /* 表单样式 */
+        .form-container {
+            padding: 30px;
+        }
+        
+        .form-row {
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .form-group {
+            float: left;
+            width: 48%;
+            margin-right: 4%;
+        }
+        
+        .form-group:nth-child(2n) {
+            margin-right: 0;
+        }
+        
+        .form-group.full-width {
+            width: 100%;
+            margin-right: 0;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        /* 性别区域样式调整 - 使用浮动布局 */
+        .gender-container {
+            margin-top: 5px;
+        }
+        
+        .gender-options {
+            width: 100%;
+            overflow: hidden; /* 清除浮动 */
+        }
+        
+        .gender-option {
+            float: left;
+            width: 48%;
+            height: 40px;
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+            line-height: 30px;
+            margin-left: 4px;
+        }
+        .gender-option:first-child {
+            text-align: left;
+        }
+        
+        .gender-option:last-child {
+            text-align: left;
+        }
+        
+        .gender-option input {
+            vertical-align: middle;
+            margin-right: 5px;
+            
+        }
+        
+        .gender-option label {
+            display: inline;
+            margin-bottom: 0;
+            font-weight: normal;
+            color: #333;
+            vertical-align: middle;
+        }
+        
+        /* 按钮样式 */
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            background-color: #00bfa5;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo"><span>by</span><span>trend</span></div>
+            <h1>Welcome to ByTrend!</h1>
+            <p class="login-prompt">Already have an account? <a href="#">Log in</a></p>
+        </div>
+        
+        <div class="form-container">
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">First name</label>
+                        <input type="text" id="first-name" value="Alexander">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="last-name">Last name</label>
+                        <input type="text" id="last-name" placeholder="Your surname">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="birth-date">Birth date</label>
+                        <input type="text" id="birth-date" value="06.12.1992" placeholder="DD.MM.YYYY">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="gender-container">
+                            <div class="gender-options">
+                                <div class="gender-option">
+                                    <input type="radio" id="female" name="gender" checked>
+                                    <label for="female">Female</label>
+                                </div>
+                                <div class="gender-option">
+                                    <input type="radio" id="male" name="gender">
+                                    <label for="male">Male</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="skype">Skype</label>
+                        <input type="text" id="skype" placeholder="Your login Skype">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="promo">Promo</label>
+                        <input type="text" id="promo" placeholder="Your promo">
+                    </div>
+                </div>
+                
+                <div class="btn-container">
+                    <button type="button" class="btn">Continue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

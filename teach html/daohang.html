@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #header div{     /*注意一下第19行代码的功能，并理解*/
+            float: left;
+            height: 150px;            
+        }
+        #header img{
+            width: 150px;
+        }
+        #header div:last-child{
+            float: right;
+        }
+        .right ul{
+            list-style-type: none;
+            height: 150px;
+            padding:50px 0px;
+        }
+        .right ul li{
+            float: left;
+            width: 200px;
+            text-align: center;
+            border-left:2px solid red;
+            height: 50px;
+            line-height: 50px;
+        }
+        .right ul li:first-child{
+            border-left:none;
+        }
+        .right ul li a:link{
+            text-decoration: none;
+        }
+        .right ul li a:hover{
+            background: blue;
+            color: white;
+        }
+        .right ul li ul{
+            display: none; /*用于隐藏*/
+        }
+        .right ul li:hover ul{
+            display: block;/*用于隐藏*/
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="left">
+            <img src="img/dolphin.png" alt="">
+        </div>
+        <div class="right">
+            <ul>
+                <li><a href="#">校园文化1</a></li>
+                <li><a href="#">校园文化2</a></li>
+                <li>
+                    <a href="#">校园文化3</a>
+                    <ul>
+                        <li>计算机科学与技术专业</li>
+                        <li>计算机科学与技术专业</li>
+                        <li>计算机科学与技术专业</li>
+                        <li>计算机科学与技术专业</li>
+                    </ul>
+                </li>
+                <li><a href="#">校园文化4</a></li>
+                <li>
+                    <a href="#">校园文化5</a>
+                    <ul>
+                        <li>alkdsjflasdfk </li>
+                        <li>alkdsjflasdfk </li>
+                    </ul>
+                </li>
+                <li><a href="#">校园文化6</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

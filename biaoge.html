@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #header div{
+            float: left;
+        } */
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #header{
+            width: 800px;
+            height: 80px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        #header img{
+            width: 80px;
+            height: 80px;
+        }
+        ul{
+            list-style-type: none;
+            height: 80px;
+            line-height: 30px;
+            padding: 20px 0px;
+        }
+        ul li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            text-align: center;
+            border-left: 1px solid red;
+        }
+        a:link{
+            text-decoration: none;
+        }
+        a:hover{
+            background: blue;
+            color: white;
+        }
+        ul li:first-child{
+            /* background: green; */
+            border-left: none;
+        }
+        #header div:first-child{
+            float: left;
+        }
+        #header div:last-child{
+            float: right;
+        }
+        ul li ul{
+            display: none;
+        }
+        ul li:hover ul{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div>
+            <img src="img/a-155_wanjuxiong.png" alt="">
+        </div>
+        <div>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">校园文化</a>
+                   <ul>
+                     <li>1</li>
+                     <li>2</li>
+                     <li>3</li>
+                     <li>4</li>
+                   </ul>
+                </li>
+                <li><a href="#">招生就业</a></li>
+                <li><a href="#">学院</a></li>
+                <li><a href="#">邮箱</a></li>
+                <li><a href="#">产业</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

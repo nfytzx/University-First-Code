@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二级导航菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .nav-container {
+            background-color: #003366;
+            padding: 0 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 18px 24px;
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            background-color: #004080;
+            border-bottom: 3px solid #ff9900;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border-radius: 0 0 8px 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border-top: 3px solid #ff9900;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+        }
+
+        .dropdown-link {
+            color: #333;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            font-size: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-link:hover {
+            background-color: #f8f8f8;
+            color: #003366;
+            padding-left: 28px;
+        }
+
+        .dropdown-item:last-child .dropdown-link {
+            border-bottom: none;
+        }
+
+        .arrow {
+            display: inline-block;
+            margin-left: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .arrow {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border-radius: 0;
+                display: none;
+                border-top: none;
+            }
+
+            .nav-item:hover .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-link {
+                padding-left: 40px;
+                background-color: #f9f9f9;
+            }
+        }
+
+        .header {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .logo {
+            font-weight: bold;
+            color: #ff9900;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>西安外事学院</h1>
+    </div>
+
+    <div class="nav-container">
+        <nav class="main-nav">
+            <div class="nav-item">
+                <a href="#" class="nav-link">
+                    学校概况
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">学校简介</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">现任领导</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">校训校徽</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">校园风光</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <a href="#" class="nav-link">
+                    教学单位
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">文学院</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">医学院</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">工学院</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">商学院</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">艺术学院</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <a href="#" class="nav-link">
+                    招生就业
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">本科招生</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">专科招生</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">研究生招生</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">就业信息</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <a href="#" class="nav-link">
+                    国际交流
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">合作院校</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">留学项目</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">外教风采</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">国际会议</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <a href="#" class="nav-link">
+                    校园文化
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">学生活动</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">社团组织</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">校园新闻</a>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#" class="dropdown-link">校历安排</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</body>
+
+</html>

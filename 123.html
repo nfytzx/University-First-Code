@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    *{
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+    }
+    nav{
+        background: lightseagreen;
+        padding: 15px;
+    }
+    /* 移动优先：默认隐藏菜单，显示汉堡按钮 <768 */
+    .nav-menu{
+        display: none;
+        list-style: none;
+    }
+    .nav-toggle{
+        color: white;
+        font-size: 36px;
+        cursor: pointer;
+    }
+    /* 桌面端（≥768px）：横向菜单，隐藏汉堡按钮 */
+    @media (min-width:768px) {
+        .nav-toggle{
+            display: none;
+        }
+        /* .nav-menu{
+            display: inline-block;
+        }
+        .nav-menu li{
+            float: left;
+            margin: 0px 20px;
+        } */
+
+        .nav-menu{
+            display: flex;
+            gap: 20px;
+        }
+        .nav-menu li a{
+            color: white;
+            text-decoration: none;
+        }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-toggle">?</div>
+    <ul class="nav-menu">
+      <li><a href="#">首页</a></li>
+      <li><a href="#">产品</a></li>
+      <li><a href="#">服务</a></li>
+      <li><a href="#">关于</a></li>
+    </ul>
+  </nav>
+  <!-- <script>
+    // 简易汉堡菜单交互（点击展开/收起）
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.querySelector('.nav-menu');
+    toggle.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+  </script> -->
+</body>
+</html>

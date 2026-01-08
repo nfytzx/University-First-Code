@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#container{
+			width: 610px;
+			height: 4000px;
+			margin: 0 auto;
+			/* overflow-y: scroll; */
+			/* overflow: scroll; */
+		}
+		ul{
+			list-style: none;
+			position: sticky;
+			top: 0;
+		}
+		li{
+			float: left;
+			width: 150px;
+			height: 80px;
+			text-align: center;
+			line-height: 80px;
+			background-color: red;
+			color: white;
+		}
+		#content2,#content,#content3{
+			width: 610px;
+			height: 300px;
+			background-color: blue;
+			margin: 5px 0px;
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<h1>这个是一个粘性定位测试</h1>
+		<ul>
+			<li>首页</li>
+			<li>编辑</li>
+			<li>浏览</li>
+			<li>退出</li>
+		</ul>
+		<div id='content'>
+			
+		</div>
+		<hr />
+        <ul>
+			<li>首页</li>
+			<li>编辑</li>
+			<li>浏览</li>
+			<li>退出</li>
+		</ul>
+		<div id="content2"></div>
+        <ul>
+			<li>首页</li>
+			<li>编辑</li>
+			<li>浏览</li>
+			<li>退出</li>
+		</ul>
+        <div id="content3"></div>
+	</div>
+</body>
+</html>

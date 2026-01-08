@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人信息注册页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(213, 217, 220);
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            font-size: 16px;
+        }
+
+        .container {
+            background: white;
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        a {
+            text-decoration: none;
+            color: green;
+        }
+
+        .logo {
+            padding: 20px;
+        }
+
+        h1,
+        .login-link {
+            margin-bottom: 20px;
+
+        }
+
+        .row {
+            width: 90%;
+            background: lightblue;
+            margin: 10px auto;
+        }
+
+        button {
+            width: 90%;
+            height: 50px;
+            background: green;
+            color: white;
+            margin: 15px auto;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <span>by<span>trend</span></span>
+        </div>
+        <h1>Welcome to ByTrend!</h1>
+        <div class="login-link">
+            Already have an account? <a href="#">Log in</a>
+        </div>
+        <form action="#">
+            <div class="form-group">
+                <label for="first-name">First name<span style="color: red;">*</span></label>
+                <input type="text" id="first-name" name="first-name" value="Alexander" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last name<span style="color: red;">*</span></label>
+                <input type="text" id="last-name" name="last-name" placeholder="Your surname" required>
+            </div>
+            <div class="form-group">
+                <label for="birth-date">Birth date<span style="color: red;">*</span></label>
+                <input type="text" id="birth-date" name="birth-date" value="1992.06.12" placeholder="YYYY.DD.MM"
+                    required>
+                <!--<span class="calendar-icon">??</span> -->
+            </div>
+            <div class="form-group">
+                <label>Gender<span style="color: red;">*</span></label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gender" value="female" checked> Female
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="male"> Male
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="skype">Skype</label>
+                <input type="text" id="skype" name="skype" placeholder="Your login Skype">
+            </div>
+            <div class="form-group">
+                <label for="promo">Promo</label>
+                <input type="text" id="promo" name="promo" placeholder="Your promo">
+            </div>
+            <button type="submit">→</button>
+        </form>
+    </div>
+</body>
+
+</html>
