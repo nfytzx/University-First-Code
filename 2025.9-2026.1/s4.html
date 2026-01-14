@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻速递 - 最新资讯</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS变量定义 */
+        :root {
+            --primary-color: #1A73E8;
+            --secondary-color: #F8F9FA;
+            --accent-color: #EA4335;
+            --text-color: #202124;
+            --light-text: #5F6368;
+            --border-color: #DADCE0;
+            --white: #FFFFFF;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'PingFang SC', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 头部样式 */
+        .site-header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .logo i {
+            color: var(--accent-color);
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 30px;
+        }
+
+        .search-box form {
+            display: flex;
+            background: var(--secondary-color);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            background: transparent;
+            font-size: 1rem;
+        }
+
+        .search-box button {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        /* 导航菜单 */
+        .main-nav {
+            padding: 15px 0;
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: space-between;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .nav-list li {
+            margin-right: 30px;
+        }
+
+        .nav-list a {
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .nav-list a:hover,
+        .nav-list a.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* 焦点新闻区 */
+        .hero-section {
+            margin: 30px 0;
+        }
+
+        .hero-article {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-main {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-main:hover .hero-image {
+            transform: scale(1.05);
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: var(--white);
+            padding: 30px;
+        }
+
+        .hero-content .category {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        /* 新闻列表区 */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .section-title a {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-category {
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--light-text);
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+
+        /* 侧边栏 */
+        .sidebar {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .trending-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .trending-list li:last-child {
+            border-bottom: none;
+        }
+
+        .trending-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            line-height: 24px;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* 页脚 */
+        .site-footer {
+            background: #2C3E50;
+            color: var(--white);
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #BDC3C7;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #95A5A6;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .hero-article {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-box {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .user-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .nav-list {
+                justify-content: flex-start;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.4rem;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content {
+                padding: 20px;
+            }
+            
+            .card-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header class="site-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <!-- Logo -->
+                    <a href="#" class="logo">
+                        <i class="fas fa-newspaper"></i>
+                        <span>新闻速递</span>
+                    </a>
+                    
+                    <!-- 搜索框 -->
+                    <div class="search-box">
+                        <form>
+                            <input type="text" placeholder="搜索新闻..." id="searchInput">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    
+                    <!-- 用户操作 -->
+                    <div class="user-actions">
+                        <a href="#"><i class="fas fa-user"></i> 登录</a>
+                        <a href="#"><i class="fas fa-bell"></i></a>
+                        <a href="#"><i class="fas fa-cog"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 主导航 -->
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">国内</a></li>
+                    <li><a href="#">国际</a></li>
+                    <li><a href="#">科技</a></li>
+                    <li><a href="#">财经</a></li>
+                    <li><a href="#">体育</a></li>
+                    <li><a href="#">娱乐</a></li>
+                    <li><a href="#">生活</a></li>
+                    <li><a href="#">观点</a></li>
+                    <li><a href="#">视频</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="container">
+        <!-- 焦点新闻 -->
+        <section class="hero-section">
+            <article class="hero-article">
+                <div class="hero-main">
+                    <img src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="AI技术突破" class="hero-image">
+                    <div class="hero-content">
+                        <span class="category">科技头条</span>
+                        <h2>人工智能新突破：深度学习模型在医疗诊断中准确率达98%</h2>
+                        <p>最新研究显示，基于Transformer架构的AI系统在多种疾病诊断中表现出色...</p>
+                        <div class="card-meta">
+                            <span>2025-12-12</span>
+                            <span>阅读 2.5万</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-side">
+                    <div class="news-card">
+                        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="经济发展" class="card-image">
+                        <div class="card-content">
+                            <span class="card-category">财经</span>
+                            <h3 class="card-title">第四季度经济增长超预期，专家解读市场趋势</h3>
+                            <div class="card-meta">
+                                <span>2小时前</span>
+                                <span>评论 345</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- 主要内容区域 -->
+        <div class="content-wrapper">
+            <!-- 新闻列表 -->
+            <section class="news-list">
+                <div class="section-title">
+                    <h2>最新新闻</h2>
+                    <a href="#">查看更多 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="news-grid">
+                    <!-- 新闻卡片1 -->
+                    <article class="news-card">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="教育新闻" class="card-image">
+                        <div class="card-content">
+                            <span class="card-category">教育</span>
+                            <h3 class="card-title">教育部发布新规：中小学将全面推行人工智能课程</h3>
+                            <p>从2026年秋季学期开始，全国中小学将逐步开设人工智能基础课程...</p>
+                            <div class="card-meta">
+                                <span>3小时前</span>
+                                <span>阅读 1.8万</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- 新闻卡片2 -->
+                    <article class="news-card">
+                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="体育新闻" class="card-image">
+                        <div class="card-content">
+                            <span class="card-category">体育</span>
+                            <h3 class="card-title">亚洲杯足球赛：中国队挺进四强，创历史最佳战绩</h3>
+                            <p>在昨晚的比赛中，中国队以2:1战胜日本队，成功晋级亚洲杯四强...</p>
+                            <div class="card-meta">
+                                <span>5小时前</span>
+                                <span>评论 892</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- 新闻卡片3 -->
+                    <article class="news-card">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="环境新闻" class="card-image">
+                        <div class="card-content">
+                            <span class="card-category">环境</span>
+                            <h3 class="card-title">全球气候大会达成新协议：2030年前减少碳排放50%</h3>
+                            <p>第30届联合国气候变化大会通过历史性决议，各国承诺加大减排力度...</p>
+                            <div class="card-meta">
+                                <span>6小时前</span>
+                                <span>阅读 3.2万</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- 新闻卡片4 -->
+                    <article class="news-card">
+                        <img src="https://images.unsplash.com/photo-1593642532454-e138e28a63f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="科技新闻" class="card-image">
+                        <div class="card-content">
+                            <span class="card-category">科技</span>
+                            <h3 class="card-title">苹果发布新一代AR眼镜，开启混合现实新纪元</h3>
+                            <p>苹果公司在秋季发布会上展示了革命性的AR眼镜产品Apple Vision Pro...</p>
+                            <div class="card-meta">
+                                <span>8小时前</span>
+                                <span>评论 1567</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <!-- 侧边栏 -->
+            <aside class="sidebar">
+                <div class="section-title">
+                    <h2>热点排行</h2>
+                </div>
+                
+                <ul class="trending-list">
+                    <li>
+                        <span class="trending-number">1</span>
+                        <a href="#">人工智能伦理指南发布，科技巨头积极响应</a>
+                    </li>
+                    <li>
+                        <span class="trending-number">2</span>
+                        <a href="#">新能源汽车销量创新高，传统车企加速转型</a>
+                    </li>
+                    <li>
+                        <span class="trending-number">3</span>
+                        <a href="#">数字人民币试点扩大，覆盖城市增至50个</a>
+                    </li>
+                    <li>
+                        <span class="trending-number">4</span>
+                        <a href="#">远程办公成为新常态，企业如何适应变化</a>
+                    </li>
+                    <li>
+                        <span class="trending-number">5</span>
+                        <a href="#">元宇宙概念持续火热，各大公司布局虚拟世界</a>
+                    </li>
+                </ul>
+                
+                <div class="section-title" style="margin-top: 30px;">
+                    <h2>视频新闻</h2>
+                </div>
+                
+                <div class="video-news">
+                    <div class="news-card">
+                        <div class="card-image" style="background: #333; display: flex; align-items: center; justify-content: center; color: white;">
+                            <i class="fas fa-play-circle" style="font-size: 3rem;"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">探访中国首个量子计算实验室</h3>
+                            <div class="card-meta">
+                                <span>视频 15:23</span>
+                                <span>观看 4.7万</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">招聘信息</a></li>
+                        <li><a href="#">合作伙伴</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>产品服务</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">新闻APP</a></li>
+                        <li><a href="#">RSS订阅</a></li>
+                        <li><a href="#">广告合作</a></li>
+                       
