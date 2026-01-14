@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生兴趣分类</title>
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #F5F7FA;
+            --accent-color: #50C878;
+            --text-color: #333333;
+            --light-text: #666666;
+            --white: #FFFFFF;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #2C6FB7);
+            color: var(--white);
+            padding: 30px 0;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .logo h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+
+
+        main {
+            padding: 40px 0;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            color: var(--light-text);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .science .category-icon {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        }
+
+        .art .category-icon {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+        }
+
+        .sports .category-icon {
+            background: linear-gradient(135deg, #1D976C, #93F9B9);
+        }
+
+        .tech .category-icon {
+            background: linear-gradient(135deg, #4776E6, #8E54E9);
+        }
+
+        .literature .category-icon {
+            background: linear-gradient(135deg, #DA22FF, #9733EE);
+        }
+
+        .social .category-icon {
+            background: linear-gradient(135deg, #F7971E, #FFD200);
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .category-card p {
+            color: var(--light-text);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+
+        @media (max-width: 992px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+
+        }
+
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+
+            .category-card {
+                padding: 20px;
+            }
+
+            .page-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h1>学生兴趣分类</h1>
+                        <p class="tagline">探索多样兴趣，发掘无限可能</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区域 -->
+    <main class="container">
+        <section class="page-title">
+            <h2>兴趣分类</h2>
+            <p>发现并探索适合你的兴趣领域，每个类别都提供了丰富的学习资源和实践机会</p>
+        </section>
+
+        <!-- 兴趣分类网格 -->
+        <section class="category-grid">
+            <!-- 科学分类 -->
+            <div class="category-card science">
+                <div class="category-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h3>科学</h3>
+                <p>对物理、化学、生物、天文等领域的探索和学习，通过实验验证科学理论，培养逻辑思维和创新能力。</p>
+
+            </div>
+
+            <!-- 艺术分类 -->
+            <div class="category-card art">
+                <div class="category-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>艺术</h3>
+                <p>通过绘画、音乐、舞蹈、戏剧等方式表达自我，提升创造力和想象力，感受艺术的魅力与情感表达。</p>
+
+            </div>
+
+            <!-- 体育分类 -->
+            <div class="category-card sports">
+                <div class="category-icon">
+                    <i class="fas fa-basketball-ball"></i>
+                </div>
+                <h3>体育</h3>
+                <p>参与篮球、足球、游泳、田径等运动项目，锻炼身体素质，培养团队合作精神和竞争意识。</p>
+
+            </div>
+
+            <!-- 技术分类 -->
+            <div class="category-card tech">
+                <div class="category-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>技术</h3>
+                <p>学习编程、人工智能、网络安全、数据分析等技术，掌握现代科技的应用，为未来职业发展奠定基础。</p>
+
+            </div>
+
+            <!-- 文学分类 -->
+            <div class="category-card literature">
+                <div class="category-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>文学</h3>
+                <p>阅读经典文学作品，创作诗歌、散文、小说，提升语言表达能力，理解人类文化的深厚底蕴。</p>
+
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>
