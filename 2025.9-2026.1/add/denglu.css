@@ -1,0 +1,132 @@
+/* 这个css样式文件我手写完后给AI修改了一边最后我自己又改了改 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* 背景图片 */
+    background-image: url(dl.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* 半透明遮罩层 */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+#a {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(2px);
+}
+
+#a:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #4fc3f7;
+    box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.1);
+}
+
+input[type="submit"] {
+    background: linear-gradient(to right, #4fc3f7, #29b6f6);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(to right, #29b6f6, #4fc3f7);
+    transform: scale(1.02);
+}
+
+input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register-link a {
+    color: #29b6f6;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #0288d1;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    #a {
+        padding: 30px 25px;
+        margin: 0 10px;
+    }
+
+    body {
+        padding: 10px;
+    }
+}

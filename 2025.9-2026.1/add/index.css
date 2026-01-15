@@ -1,0 +1,360 @@
+/* 这个css样式文件我手写完后给AI修改了一边最后我自己又改了改 */
+/* 变量定义 */
+:root {
+    --primary-color: #1A73E8;
+    --secondary-color: #F8F9FA;
+    --accent-color: #EA4335;
+    --text-color: #202124;
+    --light-text: #5F6368;
+    --border-color: #DADCE0;
+    --white: #FFFFFF;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'PingFang SC', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-image: url(in1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+#all-div {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(1px);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 头部样式 */
+.site-header {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    margin-bottom: 30px;
+}
+
+.header-top {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+/* 欢迎消息动画 */
+.welcome-message {
+    color: #7bd1e0;
+    font-weight: bold;
+    font-size: 1.1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    flex: 1;
+    text-align: center;
+    min-width: 200px;
+}
+
+.welcome-message span {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+    padding: 0 10px;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* 用户操作按钮样式 */
+.user-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-login {
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-login {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-login:hover {
+    background-color: #0d62d9;
+    transform: translateY(-2px);
+}
+
+.btn-notification {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.btn-notification:hover {
+    background-color: var(--border-color);
+    transform: translateY(-2px);
+}
+
+/* 导航菜单 */
+.main-nav {
+    padding: 20px 0;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    white-space: nowrap;
+}
+
+.nav-list a {
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: var(--transition);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* 主要内容区域 */
+.content-area {
+    margin: 40px 0;
+}
+
+/* 首页主要内容区域 */
+.hero-section {
+    background: var(--text-color);
+    border-radius: var(--radius);
+    padding: 60px 40px;
+    margin-bottom: 40px;
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--white);
+    color: var(--primary-color);
+    border-radius: var(--radius);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* 页脚 */
+.site-footer {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    padding: 30px 0;
+    margin-top: 50px;
+    box-shadow: var(--shadow);
+}
+
+.copyright {
+    text-align: center;
+    color: var(--light-text);
+}
+
+.email-link {
+    color: #4fc3f7;
+}
+
+.email-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    #all-div {
+        padding: 30px;
+        max-width: 95%;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .welcome-message {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-list {
+        justify-content: center;
+    }
+
+    .hero-section {
+        padding: 40px 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .user-actions {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #all-div {
+        padding: 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .nav-list a {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .welcome-message {
+        font-size: 1rem;
+    }
+
+    .welcome-message span {
+        animation-duration: 20s;
+    }
+}

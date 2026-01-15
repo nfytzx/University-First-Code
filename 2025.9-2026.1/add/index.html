@@ -1,69 +1,80 @@
+<!-- 这个css样式文件我手写完后给AI修改了一边最后我自己又改了改 -->
 <!DOCTYPE html>
-<html lang="ch">
+<html lang="zh-CN"> 
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>主页</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="all.css" />
+    <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
-    <!-- 头部区域 -->
-    <header class="site-header">
-        <div class="header-top">
-            <div class="container">
-                <div class="header-content">
-                    <!-- Logo -->
-                    <a href="bbb.png" class="logo">
-                        <img src="bbb.png" width="35" height="35" class="logo" />
-                        <span>site-■■</span>
-                    </a>
+    <div class="background-overlay"></div>
 
-                     <div>
-                        <marquee behavior="scroll" direction="left" scrollamount="4" style="color: #7bd1e0; font-weight: bold;">
-                            欢迎来到此站点！！！
-                        </marquee>
-                     </div>
+    <div id="all-div">
+        <!-- 顶端导航 -->
+        <header class="site-header">
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-content">
+                        <a href="index.html" class="logo">
+                            <img src="bbb.png" width="35" height="35" alt="网站Logo" />
+                            <span>site-■■</span>
+                        </a>
 
-                    <!-- 用户 -->
-                    <div class="user-actions">
-                        <a href="#"><i class="fas fa-user"></i> 登录</a>
-                        <a href="#"><i class="fas fa-bell"></i>通知</a>
-                        <a href="#"><i class="fas fa-cog"></i>设置</a>
+                        <div class="welcome-message">
+                            <span>欢迎来到此站点！！！</span>
+                        </div>
+
+                        <!-- 用户 -->
+                        <div class="user-actions">
+                            <a href="denglu.html" class="btn-login"><i class="fa-regular fa-circle-user"></i> 登录</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 主导航 -->
-        <nav class="main-nav">
+            <!-- 主导航 -->
+            <nav class="main-nav">
+                <div class="container">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> 首页</a></li>
+                        <li><a href="index2.html" target="_blank"><i class="fa-solid fa-music"></i> 来点音乐？</a></li>
+                        <li><a href="https://github.com/nfytzx/University-First-Code" target="_blank"><i
+                                    class="fa-brands fa-github"></i> github</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- 添加主要内容区域 -->
+        <main class="content-area">
             <div class="container">
-                <ul class="nav-list">
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="index2.html" target="_blank"><i class="fa-solid fa-music"></i> 来点音乐？</a></li>
-                    <li><a href="https://github.com/nfytzx/University-First-Code" target="_blank"><i class="fa-brands fa-github"></i> github</a></li>
-                </ul>
+                <!-- 英雄区域 -->
+                <section class="hero-section">
+                    <div class="hero-content">
+                        <h2>欢迎来到我们的网站</h2>
+                        <p>这里是一个网页设计展示。</p>
+                        <a href="#" class="btn-primary">了解更多</a>
+                    </div>
+                </section>
+
+
             </div>
-        </nav>
-    </header>
+        </main>
 
-
-
-
-
-    &nbsp;
-
-    &nbsp;
-
-    <div id="c">
-        <center>
-            Copyright © 2026网页. All Rights Reserved.
-            <p>邮箱联系：<a href="mailto:nfy159@gmail.com" style="color:#4fc3f7;">nfy159@gmail.com</a></p>
-        </center>
+        <!-- 页脚 -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="copyright">
+                    <p>Copyright © 2026网页. All Rights Reserved.</p>
+                    <p>邮箱联系：<a href="mailto:nfy159@gmail.com" class="email-link">nfy159@gmail.com</a></p>
+                </div>
+            </div>
+        </footer>
     </div>
-
 </body>
 
 </html>
