@@ -214,7 +214,7 @@ img {
     margin: 40px 0;
 }
 
-/* 英雄区域 */
+/* 一区域 */
 .hero-section {
     border-radius: var(--radius);
     padding: 60px 40px;
@@ -235,22 +235,6 @@ img {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.btn-primary {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: var(--white);
-    color: var(--primary-color);
-    border-radius: var(--radius);
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.btn-primary:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 
