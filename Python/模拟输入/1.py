@@ -3,12 +3,7 @@ from pynput.keyboard import Controller, Key
 
 
 def type_file_content(file_path, delay=0.05):
-    """
-    读取文本文件并模拟人工逐字符输入
 
-    :param file_path: 文本文件路径
-    :param delay: 每个字符之间的延迟（秒），用于模拟人类打字速度
-    """
     keyboard = Controller()
 
     # 读取文件内容
@@ -22,7 +17,7 @@ def type_file_content(file_path, delay=0.05):
         print(f"读取文件时出错：{e}")
         return
 
-    # 可选：添加几秒延迟，让你有时间点击目标输入框
+    
     print("5秒后将开始输入，请将光标置于目标输入框...")
     time.sleep(5)
 
